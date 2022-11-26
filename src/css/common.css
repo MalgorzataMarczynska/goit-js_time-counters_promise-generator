@@ -30,6 +30,7 @@ img {
   display: block;
   padding: 0 auto;
   text-align: center;
+  color: rgb(7, 7, 119);
 }
 .label {
   display: block;
