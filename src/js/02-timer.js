@@ -7,6 +7,7 @@ const dataHours = document.querySelector('.value[data-hours]');
 const dataMinutes = document.querySelector('.value[data-minutes]');
 const dataSeconds = document.querySelector('.value[data-seconds]');
 let timerId = null;
+startBtn.disabled = true;
 const flatpick = flatpickr('#datetime-picker', {
   enableTime: true,
   time_24hr: true,
@@ -16,10 +17,11 @@ const flatpick = flatpickr('#datetime-picker', {
     const now = new Date();
     const dateNow = now.getTime();
     const selectedDate = selectedDates[0].getTime();
+    startBtn.disabled = false;
     if (selectedDate < dateNow) {
       return Notiflix.Notify.failure('Please choose a date in the future');
     }
-    startBtn.disabled = false;
+
     function timeCounter() {
       const now = new Date();
       const dateNow = now.getTime();
@@ -27,7 +29,7 @@ const flatpick = flatpickr('#datetime-picker', {
       const ms = selectedDate - dateNow;
       if (ms <= 0) {
         clearInterval(timerId);
-        startBtn.disabled = true;
+        startBtn.disabled = false;
         return;
       }
       if (ms < 60000) {
@@ -36,7 +38,7 @@ const flatpick = flatpickr('#datetime-picker', {
       const counter = convertMs(ms);
       return counter;
     }
-    timeCounter();
+
     startBtn.addEventListener('click', () => {
       timerId = setInterval(() => {
         timeCounter();
@@ -45,9 +47,6 @@ const flatpick = flatpickr('#datetime-picker', {
     });
   },
 });
-
-startBtn.disabled = true;
-
 function convertMs(ms) {
   // Number of milliseconds per unit of time
   const second = 1000;
