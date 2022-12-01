@@ -33,7 +33,7 @@ function generatePromises(number) {
   let firstDelay = Number(promiseSettings.delay);
   let step = Number(promiseSettings.step);
   for (let i = 1; i <= number; i++) {
-    const wholeDelay = firstDelay + i * step;
+    const wholeDelay = firstDelay + (i - 1) * step;
     createPromise(i, wholeDelay)
       .then(({ position, delay }) => {
         Notiflix.Notify.success(
@@ -46,6 +46,10 @@ function generatePromises(number) {
         );
       });
   }
+  createPromiseBtn.disabled = true;
+  setTimeout(() => {
+    createPromiseBtn.disabled = false;
+  }, firstDelay + step * number);
 }
 
 form.addEventListener('submit', event => {

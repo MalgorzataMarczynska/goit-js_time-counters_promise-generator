@@ -7,10 +7,10 @@ const body = document.querySelector('body');
 let timerId = null;
 stopBtn.disabled = true;
 startBtn.addEventListener('click', () => {
+  startBtn.disabled = true;
+  stopBtn.disabled = false;
   timerId = setInterval(() => {
     body.style.backgroundColor = getRandomHexColor();
-    startBtn.disabled = true;
-    stopBtn.disabled = false;
   }, 1000);
 });
 
