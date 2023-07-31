@@ -1,3 +1,11 @@
+# GoIt homework with Parcel bundler and npm packages:
+
+# Task 1. A script that changes the body background color to a random value once per second using an inline style. After clicking the «Stop» button, the background color should stop changing and "stop" at the current color.
+
+# Task 2. A counter script that counts down to a specific event. Such a counter can be used on blogs or online stores, websites with various events, during technical breaks, etc with Notiflix library for notification.
+
+# Task 3. A script that, after submitting the form, calls the createPromise(position, delay) function as many times as entered in the amount field. After each call, give it the number of the promise you created (position) and the delay, including the user-entered first delay (delay) and step (step).
+
 # Parcel template
 
 Ten projekt został stworzony przy pomocy Parcel. W celu zapoznania się i
